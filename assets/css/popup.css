@@ -1,0 +1,270 @@
+/**
+ * Zuba Online Market - Popup Notification Styles
+ */
+
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.popup-overlay.show {
+    opacity: 1;
+}
+
+/* Popup Box */
+.popup-box {
+    background: #fff;
+    border-radius: 20px;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    overflow: hidden;
+    position: relative;
+    padding: 32px 24px 24px;
+    text-align: center;
+}
+
+.popup-overlay.show .popup-box {
+    transform: scale(1) translateY(0);
+}
+
+/* Close Button */
+.popup-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #f3f4f6;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.popup-close:hover {
+    background: #e5e7eb;
+    color: #1a1a2e;
+    transform: rotate(90deg);
+}
+
+/* Popup Icon */
+.popup-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    animation: iconBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes iconBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.popup-success .popup-icon {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.4);
+}
+
+.popup-error .popup-icon {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4);
+}
+
+.popup-warning .popup-icon {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.4);
+}
+
+.popup-info .popup-icon {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+}
+
+.popup-question .popup-icon {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+}
+
+/* Popup Content */
+.popup-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: #1a1a2e;
+    margin: 0 0 12px;
+}
+
+.popup-message {
+    font-size: 15px;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 0 24px;
+}
+
+/* Popup Actions */
+.popup-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.popup-btn {
+    flex: 1;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.popup-btn-confirm {
+    background: linear-gradient(135deg, #ff6b35 0%, #f97316 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.popup-btn-confirm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
+}
+
+.popup-btn-cancel {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+
+.popup-btn-cancel:hover {
+    background: #e5e7eb;
+}
+
+.popup-success .popup-btn-confirm {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.popup-success .popup-btn-confirm:hover {
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4);
+}
+
+.popup-error .popup-btn-confirm {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.popup-error .popup-btn-confirm:hover {
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+/* Toast Notifications */
+.toast {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background: #1a1a2e;
+    color: #fff;
+    padding: 14px 24px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    opacity: 0;
+    transition: all 0.3s;
+    max-width: 90%;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.toast i {
+    font-size: 18px;
+}
+
+.toast-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.toast-error {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+
+.toast-warning {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.toast-info {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .popup-box {
+        max-width: 100%;
+        margin: 0 16px;
+        padding: 28px 20px 20px;
+    }
+
+    .popup-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 32px;
+    }
+
+    .popup-title {
+        font-size: 20px;
+    }
+
+    .popup-message {
+        font-size: 14px;
+    }
+
+    .popup-actions {
+        flex-direction: column;
+    }
+
+    .toast {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+}
